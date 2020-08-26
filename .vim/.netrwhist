@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/rishi/.config/awesome/themes/junerishi'
+let g:netrw_dirhist_6='/home/rishi/Musicc/BrockhamptonIridescence'
+let g:netrw_dirhist_5='/home/rishi/.config/awesome/awesome-wm-widgets/spotify-widget'
+let g:netrw_dirhist_4='/home/rishi/.config/awesome/awesome-wm-widgets/batteryarc-widget'
+let g:netrw_dirhist_3='/home/rishi/.config/awesome/awesome-wm-widgets/spotify-widget'
+let g:netrw_dirhist_2='/home/rishi/.config/awesome/themes/junerishi'
+let g:netrw_dirhist_1='/home/rishi/.vim'
