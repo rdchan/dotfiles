@@ -548,6 +548,8 @@ globalkeys = my_table.join(
               {description = "run gui editor", group = "launcher"}),
           awful.key({ modkey }, "w", function () awful.spawn("spotify") end,
               {description = "run spotify", group = "launcher"}),
+          awful.key({ modkey }, "e", function () awful.spawn("teams") end,
+              {description = "run teams", group = "launcher"}),
 
 
     -- Default
@@ -555,12 +557,12 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
     --]]
-    --[[ dmenu
-    awful.key({ modkey }, "x", function ()
+    -- dmenu
+    awful.key({ modkey }, "d", function ()
             os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
             beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
-        {description = "show dmenu", group = "launcher"})
+        {description = "show dmenu", group = "launcher"}),
     --]]
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
@@ -807,6 +809,8 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+gears.timer.start_new(10, function() collectgarbage("step", 4000) return true end)
 -- possible workaround for tag preservation when switching back to default screen:
 -- https://github.com/lcpz/awesome-copycats/issues/251
+--
 -- }}}

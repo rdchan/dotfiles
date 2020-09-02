@@ -69,25 +69,15 @@
 	XF86AudioRaiseVolume
 "amixer sset Master toggle"
 	XF86AudioMute
-    Control_L+Super_L+j
-##For spotify##
 "playerctl play-pause"
-#    m:0x0 + c:208
-    m:0x0 + c:172  
     XF86AudioPlay
-#   XF86AudioPause
+    XF86AudioPause
 "playerctl next"
     XF86AudioNext
 "playerctl previous"
     XF86AudioPrev
-"xdotool key --clearmodifiers Down"
-    Alt+Mod4+j+Release
-"xdotool key --clearmodifiers Up"
-    Alt+Mod4+k+Release
-"xdotool key --clearmodifiers Left"
-    Alt+Mod4+h+Release
-"xdotool key --clearmodifiers Right"
-    Alt+Mod4+l+Release
 ################################## 
 # End of xbindkeys configuration #
 ##################################
+#    m:0x0 + c:208 for bluetooth headset play/pause
+#    m:0x0 + c:172  for mouse side button 2
