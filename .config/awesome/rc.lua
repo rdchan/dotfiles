@@ -1,4 +1,5 @@
 --[[
+--
 
      Awesome WM configuration template
      github.com/lcpz
@@ -124,15 +125,15 @@ awful.layout.layouts = {
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
-    awful.layout.suit.corner.se,
+    --awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
     --lain.layout.centerwork,
@@ -489,7 +490,33 @@ globalkeys = my_table.join(
         end,
         {description = "volume 0%", group = "hotkeys"}),
 
-    -- MPD control
+    --Spotify Control
+    
+    awful.key({ altkey, "Control" }, "Up",
+        function ()
+            os.execute("playerctl play-pause")
+            beautiful.mpd.update()
+        end,
+        {description = "spotify toggle", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Down",
+        function ()
+            os.execute("playerctl pause")
+            beautiful.mpd.update()
+        end,
+        {description = "spotify pause", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Left",
+        function ()
+            os.execute("playerctl previous")
+            beautiful.mpd.update()
+        end,
+        {description = "spotify prev", group = "widgets"}),
+    awful.key({ altkey, "Control" }, "Right",
+        function ()
+            os.execute("playerctl next")
+            beautiful.mpd.update()
+        end,
+        {description = "spotify next", group = "widgets"}),
+    --[[MPD control
     awful.key({ altkey, "Control" }, "Up",
         function ()
             os.execute("mpc toggle")
@@ -528,6 +555,7 @@ globalkeys = my_table.join(
         end,
         {description = "mpc on/off", group = "widgets"}),
 
+    --]]
     -- Spotify Ad Skip util
     --awful.key({"Shift" , "Control" }, "Right",
     --    function ()
@@ -732,8 +760,8 @@ awful.rules.rules = {
     --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
     --{ rule = { class = "spotify" },
     --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
-    --{ rule = { instance = "spotify" },
-    --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
+    { rule = { class = "spotify" },
+      properties = { screen = 1, tag = awful.util.tagnames[2] } },
 }
 -- }}}
 

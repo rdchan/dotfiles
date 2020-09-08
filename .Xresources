@@ -13,7 +13,7 @@ URxvt*shading: 70
 !URxvt*background: rgba:3000/2300/5100/ee00
 
 !clipboard
-!URxvt*perl-ext-common: default, clipboad
+URxvt*perl-ext-common: default,resize-font
 !! Colorscheme
 
 ! special

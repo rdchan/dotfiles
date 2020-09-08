@@ -117,7 +117,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 -- JUST THE DATE!!! we have center clock for the actual clock
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %B %d"))
 mytextclock.font = theme.font
-local centerclock = wibox.widget.textclock(markup("#de5e1e", "%H:%M:%S"), 1)
+local centerclock = wibox.widget.textclock(markup("#de5e1e", "<b>%H:%M:%S</b>"), 1)
 centerclock.font = theme.font
 -- Calendar
 theme.cal = lain.widget.cal({
@@ -381,15 +381,17 @@ function theme.at_screen_connect(s)
                 font = "Terminus 10",
                 dim_when_paused = true,
                dim_opacity = 0.5,
-               max_length = -1,
---               show_tooltip = true
+                max_artist_length = 21,
+                max_song_length = 25,
+                max_album_length = 20,
+               show_tooltip = true,
             }),
             netdownicon,
             netdowninfo,
             netupicon,
             netupinfo.widget,
             volicon,
-           -- theme.volume.widget,
+            --theme.volume.widget,
             volumewidget,
             memicon,
             memory.widget,
@@ -397,8 +399,8 @@ function theme.at_screen_connect(s)
             --cpu.widget,
             --fsicon,
             --theme.fs.widget,
-            weathericon,
-            theme.weather.widget,
+           -- weathericon,
+            --theme.weather.widget,
            -- tempicon,
            -- temp.widget,
             --baticon,

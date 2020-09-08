@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/rishi/.config/awesome/awesome-wm-widgets/volumearc-widget'
+let g:netrw_dirhist_8='/home/rishi/.config/awesome/awesome-wm-widgets/spotify-widget'
 let g:netrw_dirhist_7='/home/rishi/.config/awesome/themes/junerishi'
 let g:netrw_dirhist_6='/home/rishi/Musicc/BrockhamptonIridescence'
 let g:netrw_dirhist_5='/home/rishi/.config/awesome/awesome-wm-widgets/spotify-widget'

@@ -1,4 +1,8 @@
-" --- Auto-install vim-plug if not already installed --- "
+" get vim-latex suite here
+" http://vim-latex.sourceforge.net/index.php?subject=download
+
+
+"--- Auto-install vim-plug if not already installed --- "
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -36,6 +40,9 @@ let g:airline_powerline_fonts = 1
 " Airline theme
 let g:airline_theme = 'gruvbox'
 
+" for latex
+let g:tex_flavor='latex'
+
 " User-specific Settings.
 
 " ---Sets---
@@ -60,6 +67,13 @@ set incsearch                   " search as typing
 set bg=dark                     " auto dark mode
 set wildmenu
 
+" set spell check in en_us for tex documents only
+autocmd FileType tex setlocal spell spelllang=en_us
+
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press <C-n> you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
 
 " custom bindings
 " to insert a blank line above/below the cursor and stay in normal mode
