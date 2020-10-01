@@ -100,23 +100,7 @@ local browser      = os.getenv("BROWSER") or "firefox"
 local scrlocker    = "betterlockscreen -l dim"
 
 awful.util.terminal = terminal
-awful.util.tagnames = {}
-awful.tag.add("main", {
-        layout = awful.layout.suit.tile,
-        selected = true,
-})
-
-awful.tag.add("music", {
-        layout = awful.layout.suit.tile,
-        useless_gap = 15,
-})
-awful.tag.add("social", {
-        layout = awful.layout.suit.tile,
-})
-
-awful.tag.add("gaming", {
-        layout = awful.layout.suit.tile,
-})
+awful.util.tagnames = {"main", "music", "social", "gaming"}
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -260,7 +244,9 @@ screen.connect_signal("arrange", function (s)
     end
 end)
 -- Create a wibox for each screen and add it
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+awful.screen.connect_for_each_screen(function(s) 
+    beautiful.at_screen_connect(s)
+end)
 -- }}}
 
 -- {{{ Mouse bindings
@@ -477,12 +463,6 @@ globalkeys = my_table.join(
             beautiful.volume.update()
         end,
         {description = "toggle mute", group = "hotkeys"}),
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume 100%", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "0",
         function ()
             os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))

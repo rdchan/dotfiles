@@ -70,8 +70,9 @@
 "amixer sset Master toggle"
 	XF86AudioMute
 "playerctl play-pause"
-    XF86AudioPlay
     XF86AudioPause
+"playerctl play-pause"
+    XF86AudioPlay
 "playerctl next"
     XF86AudioNext
 "playerctl previous"

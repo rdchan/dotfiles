@@ -12,6 +12,9 @@ URxvt*shading: 70
 !URxvt*background: rgba:0000/0000/0200/c800
 !URxvt*background: rgba:3000/2300/5100/ee00
 
+!set fancy cursor
+Xcursor.theme: ArchCursorTheme
+
 !clipboard
 URxvt*perl-ext-common: default,resize-font
 !! Colorscheme

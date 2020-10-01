@@ -74,8 +74,3 @@ autocmd FileType tex setlocal spell spelllang=en_us
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
 set iskeyword+=:
-
-" custom bindings
-" to insert a blank line above/below the cursor and stay in normal mode
-nnoremap  <Enter> o<ESC>
-nnoremap  <S-Enter> O<ESC>

@@ -330,7 +330,7 @@ function theme.at_screen_connect(s)
     gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+    awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -361,6 +361,7 @@ function theme.at_screen_connect(s)
             s.mypromptbox,
             mpdicon,
             theme.mpd.widget,
+            wibox.widget.systray(),
         },
         {
             layout = wibox.layout.fixed.horizontal,
@@ -374,7 +375,6 @@ function theme.at_screen_connect(s)
 --        nil,
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             --mailicon,
             --theme.mail.widget,
             spotify_widget({
