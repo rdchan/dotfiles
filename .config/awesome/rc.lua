@@ -554,7 +554,9 @@ globalkeys = my_table.join(
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
               {description = "run gui editor", group = "launcher"}),
-          awful.key({ modkey }, "w", function () awful.spawn("spotify") end,
+          awful.key({ modkey }, "w", function () awful.spawn("spotify", {
+                          tag  = awful.tag.find_by_name(awful.screen.focused(), "music"),
+                  }) end,
               {description = "run spotify", group = "launcher"}),
           awful.key({ modkey }, "e", function () awful.spawn("teams") end,
               {description = "run teams", group = "launcher"}),

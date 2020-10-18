@@ -1,6 +1,6 @@
 #!/bin/bash
 killall spotify
 spotify &
-sleep 5
-playerctl play-pause
+sleep 7
+playerctl play
 

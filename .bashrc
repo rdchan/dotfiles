@@ -29,6 +29,10 @@ alias xsame='xrandr --output HDMI2 --same-as HDMI1'
 alias xsplit='xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1'
 alias xsolo='xrandr --output HDMI2 --off'
 alias xdual='xrandr --output HDMI2 --auto --mode 1920x1080' 
+alias fal='cd ~/Documents/fall2020'
+alias math='cd ~/Documents/fall2020/math/'
+alias os='cd ~/Documents/fall2020/os/'
+alias opl='cd ~/Documents/fall2020/opl/'
 
 #if ["$TERM" = "linux" ]; then
 #    echo -en "\e]P0282828" #black

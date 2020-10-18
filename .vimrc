@@ -59,7 +59,7 @@ set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if all lowercase
 "set nobackup                    " don't need swp files
 "set noswapfile                  " don't need swp files
-"set showmatch                   " Show matching braces when over one
+set showmatch                   " Show matching braces when over one
 "set backspace=indent,eol,start  " allow backspacing everything in insert
 set hlsearch                    " highlight searches
 set incsearch                   " search as typing

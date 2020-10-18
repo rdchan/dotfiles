@@ -112,8 +112,9 @@ local function worker(args)
             cur_title = title
             cur_album = album
 
-            if string.match(title, "Advertisement") or string.match(track_num, "0\n") then
+            if string.match(title, "Advertisement") or (track_num == "0") then
                 awful.spawn("skipspotifyad", false)
+                os.execute("sleep 3")
             end
 
             widget:set_text(artist, album, track_num, title)
