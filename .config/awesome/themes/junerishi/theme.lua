@@ -17,7 +17,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/junerishi"
-theme.wallpaper                                 = theme.confdir .. "/zaba.png"
+theme.wallpaper                                 = theme.confdir .. "/wall.png"
 theme.font                                      = "Terminus 8"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
@@ -30,7 +30,7 @@ theme.fg_urgent                                 = "#af1d18"
 theme.fg_minimize                               = "#ffffff"
 theme.border_width                              = dpi(1)
 theme.border_normal                             = "#1c2022"
-theme.border_focus                              = "#ffffff" --"#838383"-- change between gray and "#00ff33" this is a neon green
+theme.border_focus                              = "#e75637" --"#838383"-- change between gray and "#00ff33" this is a neon green previously was ffffff
 theme.border_marked                             = "#3ca4d8"
 theme.menu_border_width                         = 0
 theme.menu_width                                = dpi(130)

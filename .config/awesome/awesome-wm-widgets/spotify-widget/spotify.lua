@@ -96,11 +96,12 @@ local function worker(args)
             return
         end
 
-        local escaped = string.gsub(stdout, "&", '&amp;')
+        --local escaped = string.gsub(stdout, "&", '&amp;')
+        local raw = string.gsub(stdout, "", "")
 --        local album, album_artist, artist, title =
   --          string.match(escaped, 'Album%s*(.*)\nAlbumArtist%s*(.*)\nArtist%s*(.*)\nTitle%s*(.*)\n')
         local album, album_artist, artist, title, track_num =
-            string.match(escaped, '\nalbum|(.*)\nalbumArtist|(.*)\nartist|(.*)\nauto.*title|*(.*)\ntrackNumber|*(.*)\nurl.*')
+            string.match(raw, '\nalbum|(.*)\nalbumArtist|(.*)\nartist|(.*)\nauto.*title|*(.*)\ntrackNumber|*(.*)\nurl.*')
 
 
 
@@ -108,9 +109,9 @@ local function worker(args)
             album = string.gsub(album, "Remaster", "")
             title = string.gsub(title, "Remaster", "")
 
-            cur_artist = artist
-            cur_title = title
-            cur_album = album
+            cur_artist = string.gsub(artist, "&", '&amp;')
+            cur_title = string.gsub(title, "&", '&amp;')
+            cur_album = string.gsub(album, "&", '&amp;')
 
             if string.match(title, "Advertisement") or (track_num == "0") then
                 awful.spawn("skipspotifyad", false)

@@ -556,7 +556,7 @@ globalkeys = my_table.join(
               {description = "run gui editor", group = "launcher"}),
           awful.key({ modkey }, "w", function () awful.spawn("spotify", {
                           tag  = awful.tag.find_by_name(awful.screen.focused(), "music"),
-                  }) end,
+                }) end,
               {description = "run spotify", group = "launcher"}),
           awful.key({ modkey }, "e", function () awful.spawn("teams") end,
               {description = "run teams", group = "launcher"}),
@@ -742,8 +742,8 @@ awful.rules.rules = {
     --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
     --{ rule = { class = "spotify" },
     --  properties = { screen = 1, tag = awful.util.tagnames[2] } },
-    { rule = { class = "spotify" },
-      properties = { screen = 1, tag = awful.util.tagnames[2] } },
+   -- { rule = { instance = "spotify" },
+     -- properties = { tag = "music" } },
 }
 -- }}}
 

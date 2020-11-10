@@ -4,7 +4,7 @@ URxvt*scrollBar: false
 !Transparency + shading
 URxvt*depth: 32
 URxvt*transparent: true
-URxvt*shading: 70 
+URxvt*shading: 65 
 !URxvt*letsp: -2
 !URxvt*blurRadius: 2
 !URxvt*background: rgba:2121/2121/2121/aaaa
