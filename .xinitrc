@@ -9,5 +9,4 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # start some nice programs
 xrdb ~/.Xresources &
 xbindkeys
-xset r rate 180 40
 exec "awesome"

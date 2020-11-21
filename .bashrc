@@ -33,7 +33,7 @@ alias xdual='xrandr --output HDMI2 --auto --mode 1920x1080'
 alias fal='cd ~/Documents/fall2020'
 alias math='cd ~/Documents/fall2020/math/'
 alias os='cd ~/Documents/fall2020/os/'
-alias opl='cd ~/Documents/fall2020/opl/'
+alias opl='cd ~/Documents/fall2020/opl/assignment5/'
 
 #if ["$TERM" = "linux" ]; then
 #    echo -en "\e]P0282828" #black

@@ -56,9 +56,11 @@ local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
     end
+    os.execute("xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1" )
+    os.execute("xset r rate 180 40")
 end
 
-run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
+run_once({ "urxvtd", "unclutter -root"}) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 --[[
@@ -336,6 +338,8 @@ globalkeys = my_table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey, }, "x", function () os.execute("xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1") end,
+              {description = "enable split screen xrandr", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -431,7 +435,7 @@ globalkeys = my_table.join(
               {description = "dropdown application", group = "launcher"}),
 
     -- Widgets popups
-    awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
+    awful.key({ modkey, }, "c", function () if beautiful.cal then beautiful.cal.toggle() end end,
               {description = "show calendar", group = "widgets"}),
     awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
               {description = "show filesystem", group = "widgets"}),

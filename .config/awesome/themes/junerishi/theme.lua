@@ -11,6 +11,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -120,14 +121,23 @@ mytextclock.font = theme.font
 local centerclock = wibox.widget.textclock(markup("#de5e1e", "<b>%H:%M:%S</b>"), 1)
 centerclock.font = theme.font
 -- Calendar
-theme.cal = lain.widget.cal({
-    attach_to = { mytextclock },
-    notification_preset = {
-        font = "Terminus 10",
-        fg   = theme.fg_normal,
-        bg   = theme.bg_normal
-    }
+--theme.cal = lain.widget.cal({
+--    attach_to = { mytextclock },
+--    notification_preset = {
+--        font = "Terminus 10",
+--        fg   = theme.fg_normal,
+--        bg   = theme.bg_normal
+--    }
+--})
+theme.cal = calendar_widget({
+    placement = 'top_center',
+    attach_to = {centerclock},
+    theme = 'gruvbox'
 })
+--centerclock:connect_signal("button::press", 
+--    function(_, _, _, button)
+--        if button == 1 then cw.toggle() end
+--    end)
 
 -- Weather
 local weathericon = wibox.widget.imagebox(theme.widget_weather)
@@ -400,13 +410,13 @@ function theme.at_screen_connect(s)
             --fsicon,
             --theme.fs.widget,
            -- weathericon,
-            --theme.weather.widget,
+           theme.weather.widget,
            -- tempicon,
            -- temp.widget,
             --baticon,
             --bat.widget,
-            clockicon,
-            mytextclock,
+            --clockicon,
+            --mytextclock,
         },
         layout = wibox.layout.align.horizontal,
         expand="none",

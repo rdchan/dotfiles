@@ -57,8 +57,8 @@ set number                      " hybrid numbering with both rnu and number
 "set hidden                      " hide buffers instead of closing them
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if all lowercase
-"set nobackup                    " don't need swp files
-"set noswapfile                  " don't need swp files
+set nobackup                    " don't need swp files
+set noswapfile                  " don't need swp files
 set showmatch                   " Show matching braces when over one
 "set backspace=indent,eol,start  " allow backspacing everything in insert
 set hlsearch                    " highlight searches
@@ -66,7 +66,7 @@ set incsearch                   " search as typing
 "set laststatus=2		        " for lightline.vim plugin
 set bg=dark                     " auto dark mode
 set wildmenu
-
+set mouse=a
 " set spell check in en_us for tex documents only
 autocmd FileType tex setlocal spell spelllang=en_us
 
