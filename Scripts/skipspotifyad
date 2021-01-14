@@ -2,5 +2,4 @@
 killall spotify
 spotify &
 sleep 7
-playerctl play
-
+sp play

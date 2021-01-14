@@ -93,13 +93,14 @@ local themes = {
 local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "urxvt" 
+local terminal     = "kitty" 
 local vi_focus     = false -- vi-like client focus - https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "vim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
 local scrlocker    = "betterlockscreen -l dim"
+local split_toggle = false
 
 awful.util.terminal = terminal
 awful.util.tagnames = {"main", "music", "social", "gaming"}
@@ -108,6 +109,7 @@ awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
     awful.layout.suit.tile.left,
+    awful.layout.suit.fair,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
@@ -236,7 +238,8 @@ end)
 
 -- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function (s)
-    local only_one = #s.tiled_clients == 1
+    --local only_one = #s.tiled_clients == 1 I want border even when only one client
+    local only_one = false
     for _, c in pairs(s.clients) do
         if only_one and not c.floating or c.maximized then
             c.border_width = 0
@@ -338,8 +341,15 @@ globalkeys = my_table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey, }, "x", function () os.execute("xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1") end,
-              {description = "enable split screen xrandr", group = "screen"}),
+    awful.key({ modkey, }, "x", function ()
+        split_toggle = not split_toggle
+        if split_toggle then 
+            os.execute("xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1")
+        else 
+            os.execute("xrandr --output HDMI2 --off")
+        end
+    end,
+              {description = "split/solo screen toggle xrandr", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -395,7 +405,7 @@ globalkeys = my_table.join(
               {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal .. " sh -c \"neofetch; bash\"") end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -478,25 +488,25 @@ globalkeys = my_table.join(
     
     awful.key({ altkey, "Control" }, "Up",
         function ()
-            os.execute("playerctl play-pause")
+            os.execute("sp play")
             beautiful.mpd.update()
         end,
         {description = "spotify toggle", group = "widgets"}),
     awful.key({ altkey, "Control" }, "Down",
         function ()
-            os.execute("playerctl pause")
+            os.execute("sp pause")
             beautiful.mpd.update()
         end,
         {description = "spotify pause", group = "widgets"}),
     awful.key({ altkey, "Control" }, "Left",
         function ()
-            os.execute("playerctl previous")
+            os.execute("sp prev")
             beautiful.mpd.update()
         end,
         {description = "spotify prev", group = "widgets"}),
     awful.key({ altkey, "Control" }, "Right",
         function ()
-            os.execute("playerctl next")
+            os.execute("sp next")
             beautiful.mpd.update()
         end,
         {description = "spotify next", group = "widgets"}),

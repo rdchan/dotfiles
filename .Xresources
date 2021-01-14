@@ -1,5 +1,6 @@
 !URxvt*font: xft:Monaco:size=10:antialias=true
 URxvt*font: xft:Monaco:size=10:antialias=true, xft:Inconsolata Nerd Font Mono:size=12, xft:DejaVu Sans:size=12
+!URxvt*font: xft:TerminessTTF Nerd Font:size=12
 URxvt*scrollBar: false
 !Transparency + shading
 URxvt*depth: 32
@@ -12,16 +13,19 @@ URxvt*blurRadius: 20
 !URxvt*background: rgba:0000/0000/0200/c800
 !URxvt*background: rgba:3000/2300/5100/ee00
 
+URxvt*iso14755:		false
+URxvt*iso14755_52:	false
 !set fancy cursor
 Xcursor.theme: ArchCursorTheme
 
 !clipboard
-URxvt*perl-ext-common: default,resize-font
+URxvt*perl-ext-common: default
 !! Colorscheme
 
 ! special
 *.foreground: #93a1a1
-*.background: [90]#1b1d1e
+!*.background: [90]#1b1d1e
+*.background: #282828
 *.cursorColor: #afbfbf
 
 ! black

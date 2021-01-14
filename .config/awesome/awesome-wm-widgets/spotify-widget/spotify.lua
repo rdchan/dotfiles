@@ -42,6 +42,8 @@ local function worker(args)
     local cur_title = ''
     local cur_album = ''
 
+    local skipped_recently = false
+
     spotify_widget = wibox.widget {
         {
             id = 'artistw',
@@ -114,8 +116,12 @@ local function worker(args)
             cur_album = string.gsub(album, "&", '&amp;')
 
             if string.match(title, "Advertisement") or (track_num == "0") then
-                awful.spawn("skipspotifyad", false)
-                os.execute("sleep 3")
+                if not skipped_recently then
+                    awful.spawn("skipspotifyad", false)
+                    skipped_recently = true
+                end
+            else
+                skipped_recently = false
             end
 
             widget:set_text(artist, album, track_num, title)
