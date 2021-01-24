@@ -406,7 +406,7 @@ globalkeys = my_table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal .. " sh -c \"neofetch; bash\"") end,
-              {description = "open a terminal", group = "launcher"}),
+             {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -440,9 +440,9 @@ globalkeys = my_table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
-    -- Dropdown application
-    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
-              {description = "dropdown application", group = "launcher"}),
+    -- Dropdown application (broken after switched to kitty, stopped using it and didn't miss it)
+    --awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
+      --        {description = "dropdown application", group = "launcher"}),
 
     -- Widgets popups
     awful.key({ modkey, }, "c", function () if beautiful.cal then beautiful.cal.toggle() end end,
@@ -574,6 +574,12 @@ globalkeys = my_table.join(
               {description = "run spotify", group = "launcher"}),
           awful.key({ modkey }, "e", function () awful.spawn("teams") end,
               {description = "run teams", group = "launcher"}),
+          awful.key({ modkey }, "p", function () awful.spawn("surf calendar.google.com") end,
+              {description = "open planner", group = "launcher"}),
+          awful.key({ modkey }, "z", function () awful.spawn("zathura") end,
+              {description = "run zathura", group = "launcher"}),
+          awful.key({ modkey, "Control" }, "d", function () awful.spawn("discord") end,
+              {description = "run discord", group = "launcher"}),
 
 
     -- Default

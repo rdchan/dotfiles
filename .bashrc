@@ -10,7 +10,7 @@ PS1='[\e[36m\d\e[m \@]:\W/\$ '
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
-HISTSIZE=500
+HISTSIZE=10000
 
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
@@ -30,12 +30,10 @@ alias theme='cd /home/rishi/.config/awesome/themes/junerishi/'
 #alias xsplit='xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1'
 #alias xsolo='xrandr --output HDMI2 --off'
 #alias xdual='xrandr --output HDMI2 --auto --mode 1920x1080' 
-#alias fal='cd ~/Documents/fall2020'
-#alias spr='cd ~/Documents/spring2021'
+alias fal='cd ~/Documents/fall2020'
 #alias math='cd ~/Documents/fall2020/math/'
-#alias os='cd ~/Documents/fall2020/os/'
-#alias opl='cd ~/Documents/fall2020/opl/'
-alias fal='cd ~/Documents/spring2021'
+alias os='cd ~/Documents/fall2020/os/'
+alias opl='cd ~/Documents/fall2020/opl/'
 alias spr='cd ~/Documents/spring2021'
 alias auto='cd ~/Documents/spring2021/automata/'
 alias adv='cd ~/Documents/spring2021/adv_calc'

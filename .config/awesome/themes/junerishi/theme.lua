@@ -19,7 +19,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/junerishi"
 theme.wallpaper                                 = theme.confdir .. "/nyan.jpg"
-theme.font                                      = "Hack Regular 8"
+theme.font                                      = "Hack Regular 9"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
 theme.bg_normal                                 = "#000000"
@@ -143,7 +143,7 @@ theme.cal = calendar_widget({
 local weathericon = wibox.widget.imagebox(theme.widget_weather)
 theme.weather = lain.widget.weather({
     city_id = 4671654, -- (Austin)
-    notification_preset = { font = "Terminus 10", fg = theme.fg_normal },
+    notification_preset = { font = "Hack Regular 10", fg = theme.fg_normal },
     weather_na_markup = markup.fontfg(theme.font, "#eca4c4", "N/A "),
     units = "imperial",
     settings = function()
@@ -388,7 +388,7 @@ function theme.at_screen_connect(s)
             --mailicon,
             --theme.mail.widget,
             spotify_widget({
-                font = "Terminus 10",
+                font = "Hack Regular 10",
                 dim_when_paused = true,
                dim_opacity = 0.5,
                 max_artist_length = 21,
@@ -409,8 +409,9 @@ function theme.at_screen_connect(s)
             --cpu.widget,
             --fsicon,
             --theme.fs.widget,
-           -- weathericon,
+            weathericon,
            theme.weather.widget,
+            weathericon,
            -- tempicon,
            -- temp.widget,
             --baticon,

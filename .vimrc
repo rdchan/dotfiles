@@ -1,7 +1,3 @@
-" get vim-latex suite here
-" http://vim-latex.sourceforge.net/index.php?subject=download
-
-
 "--- Auto-install vim-plug if not already installed --- "
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -27,7 +23,38 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 "Plug 'davidhalter/jedi-vim'
 
-" Initialize plugin system
+" --- NERD Tree ---
+Plug 'scrooloose/nerdtree'
+
+" --- LaTeX Suite ---
+Plug 'wchargin/vim-latexsuite', {'for': 'tex' }
+let g:Tex_DefaultTargetFormat = 'pdf'
+au BufWritePost *.tex silent call Tex_RunLaTeX()
+map <leader>ls :silent call Tex_RunLaTeX()
+
+" --- YCM Code Completion (trying for nice snippets, needs aur pkg too
+Plug 'valloric/youcompleteme'
+let g:ycm_global_ycm_extra_conf = '/path/to/the/file'
+let g:ycm_confirm_extra_conf = 0
+
+" --- Snippets (trying for tex snippets, using UltiSnips engine with snippets
+"  from honza)
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+
+" make YCM compatible with UltiSnips (using supertab)
+Plug 'ervandew/supertab'
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_use_ultisnips_completer = 1
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+"Initialize plugin system
 call plug#end()
 
 filetype plugin indent on    " required

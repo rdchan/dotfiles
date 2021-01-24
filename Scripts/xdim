@@ -1,0 +1,2 @@
+level=${1-0.8}
+xrandr --output HDMI2 --brightness $level && xrandr --output HDMI1 --brightness $level
