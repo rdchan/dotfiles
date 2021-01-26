@@ -43,6 +43,7 @@ alias ml='cd ~/Documents/spring2021/ml'
 alias theo='cd ~/Documents/spring2021/theo'
 alias syl='zathura *syllabus.pdf &'
 alias viewsnip='kitty +kitten icat ~/Screensnips/snip.png'
+alias view='kitty +kitten icat'
 alias shh='sudo rmmod pcspkr'
 export PATH=$PATH:~/Scripts/
 

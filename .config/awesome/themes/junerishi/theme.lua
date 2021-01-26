@@ -18,7 +18,9 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/junerishi"
-theme.wallpaper                                 = theme.confdir .. "/nyan.jpg"
+theme.wallpaper                                 = theme.confdir .. "/current_wallpaper"
+theme.wibarimage                                = theme.confdir .. "/spacebanner.png"
+theme.taglist_font                              = "JetBrains 23"
 theme.font                                      = "Hack Regular 9"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
@@ -118,7 +120,8 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 -- JUST THE DATE!!! we have center clock for the actual clock
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %B %d"))
 mytextclock.font = theme.font
-local centerclock = wibox.widget.textclock(markup("#de5e1e", "<b>%H:%M:%S</b>"), 1)
+local centerclock = wibox.widget.textclock(markup("#46c646", "<b>%H:%M:%S</b>"), 1)
+
 centerclock.font = theme.font
 -- Calendar
 --theme.cal = lain.widget.cal({
@@ -339,7 +342,51 @@ function theme.at_screen_connect(s)
     end
     gears.wallpaper.maximized(wallpaper, s, true)
 
+    awful.util.tagnames = {}
     -- Tags
+    if s.index == 1 then
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s,
+                selected = true
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+    end
+    if s.index == 2 then
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s,
+                selected = true
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s
+            })
+    end
+
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
@@ -360,7 +407,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(19), bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(19), bgimage =theme.wibarimage, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {

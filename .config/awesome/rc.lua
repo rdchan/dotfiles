@@ -103,7 +103,6 @@ local scrlocker    = "betterlockscreen -l dim"
 local split_toggle = false
 
 awful.util.terminal = terminal
-awful.util.tagnames = {"main", "music", "social", "gaming"}
 
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -342,12 +341,12 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey, }, "x", function ()
-        split_toggle = not split_toggle
         if split_toggle then 
             os.execute("xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1")
         else 
             os.execute("xrandr --output HDMI2 --off")
         end
+        split_toggle = not split_toggle
     end,
               {description = "split/solo screen toggle xrandr", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
