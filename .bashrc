@@ -12,10 +12,20 @@ PS1='[\e[36m\d\e[m \@]:\W/\$ '
     . /usr/share/bash-completion/bash_completion
 HISTSIZE=10000
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/share/powerline/bindings/bash/powerline.sh
+if [ "$TERM" = "xterm-kitty" ]
+then 
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /usr/share/powerline/bindings/bash/powerline.sh
+    neofetch
+fi
+if [ "$TERM" = "rxvt-unicode-256color" ]
+then
+   neofetch --config ~/.config/neofetch/asciiconfig.conf
+fi
+
+
 
 alias blue='systemctl start bluetooth.service && bluetoothctl'
 alias ls='lsd -l'
@@ -45,8 +55,8 @@ alias syl='zathura *syllabus.pdf &'
 alias viewsnip='kitty +kitten icat ~/Screensnips/snip.png'
 alias view='kitty +kitten icat'
 alias shh='sudo rmmod pcspkr'
-export PATH=$PATH:~/Scripts/
-
+alias vnc='sudo systemctl start vncserver@:1'
+alias novnc='sudo systemctl stop vncserver@:1'
 #if ["$TERM" = "linux" ]; then
 #    echo -en "\e]P0282828" #black
 #    echo -en "\e]P8504945" #darkgrey

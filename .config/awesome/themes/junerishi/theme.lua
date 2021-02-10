@@ -25,8 +25,9 @@ theme.font                                      = "Hack Regular 9"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
 theme.bg_normal                                 = "#000000"
-theme.bg_focus                                  = "#000000"
+theme.bg_focus                                  = "#282828" --for the tag focus backgrounds
 theme.bg_urgent                                 = "#000000"
+theme.prompt_bg                                 = "#282828"
 theme.fg_normal                                 = "#aaaaaa"
 theme.fg_focus                                  = "#ff8c00"
 theme.fg_urgent                                 = "#af1d18"
@@ -34,14 +35,18 @@ theme.fg_minimize                               = "#ffffff"
 theme.border_width                              = dpi(2)
 theme.border_normal                             = "#1c2022"
 theme.border_focus                              = '#ffa7a5'--"#e75637"(flamingoy) --"#838383"-- change between gray and "#00ff33" this is a neon green previously was ffffff
+theme.hotkeys_modifiers_fg                      = '#D3869B' -- #D3869B
+theme.hotkeys_fg                                = '#EBDBB2'
+theme.hotkeys_description_font                  = 'Hack Regular 9'
+--theme.hotkeys_font                              = 'Hack Regular 10'
 theme.border_marked                             = "#3ca4d8"
 theme.menu_border_width                         = 0
 theme.menu_width                                = dpi(130)
 theme.menu_submenu_icon                         = theme.confdir .. "/icons/submenu.png"
 theme.menu_fg_normal                            = "#aaaaaa"
 theme.menu_fg_focus                             = "#ff8c00"
-theme.menu_bg_normal                            = "#050505dd"
-theme.menu_bg_focus                             = "#050505dd"
+theme.menu_bg_normal                            = "#050505"
+theme.menu_bg_focus                             = "#050505"
 theme.widget_temp                               = theme.confdir .. "/icons/temp.png"
 theme.widget_uptime                             = theme.confdir .. "/icons/ac.png"
 theme.widget_cpu                                = theme.confdir .. "/icons/cpu.png"
@@ -120,7 +125,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 -- JUST THE DATE!!! we have center clock for the actual clock
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %B %d"))
 mytextclock.font = theme.font
-local centerclock = wibox.widget.textclock(markup("#46c646", "<b>%H:%M:%S</b>"), 1)
+local centerclock = wibox.widget.textclock(markup("#de5e1e", "<b>%H:%M:%S</b>"), 1)
 
 centerclock.font = theme.font
 -- Calendar
@@ -352,9 +357,10 @@ function theme.at_screen_connect(s)
             })
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
-                screen = s
+                screen = s,
+                selected = true
             })
-        awful.tag.add("", {
+        awful.tag.add("", {
                 layout = awful.layout.suit.tile,
                 screen = s
             })
@@ -371,17 +377,18 @@ function theme.at_screen_connect(s)
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
                 screen = s,
-                selected = true
             })
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
-                screen = s
+                screen = s,
+                selected = true
             })
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
-                screen = s
+                screen = s,
+                selected = true
             })
-        awful.tag.add("", {
+        awful.tag.add("", {
                 layout = awful.layout.suit.tile,
                 screen = s
             })
@@ -407,7 +414,8 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(19), bgimage =theme.wibarimage, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(19), bg = "#282828", fg = theme.fg_normal })
+    --s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(19), bgimage =theme.wibarimage, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -435,7 +443,8 @@ function theme.at_screen_connect(s)
             --mailicon,
             --theme.mail.widget,
             spotify_widget({
-                font = "Hack Regular 10",
+                --font = "Hack Regular 10",
+                font = "Comic Sans MS 12",
                 dim_when_paused = true,
                dim_opacity = 0.5,
                 max_artist_length = 21,

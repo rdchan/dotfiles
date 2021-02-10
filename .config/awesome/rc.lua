@@ -20,7 +20,7 @@ local lain          = require("lain")
 --local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
-                      require("awful.hotkeys_popup.keys")
+                      require("awful.hotkeys_popup.keys.vim")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 -- }}}
@@ -101,6 +101,7 @@ local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
 local browser      = os.getenv("BROWSER") or "firefox"
 local scrlocker    = "betterlockscreen -l dim"
 local split_toggle = false
+local solo_border_toggle = false
 
 awful.util.terminal = terminal
 
@@ -238,7 +239,7 @@ end)
 -- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function (s)
     --local only_one = #s.tiled_clients == 1 I want border even when only one client
-    local only_one = false
+    local only_one = (#s.tiled_clients == 1 and solo_border_toggle) 
     for _, c in pairs(s.clients) do
         if only_one and not c.floating or c.maximized then
             c.border_width = 0
@@ -263,11 +264,6 @@ root.buttons(my_table.join(
 
 -- {{{ Key bindings
 globalkeys = my_table.join(
-    -- Take a screenshot
-    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("snip") end,
-              {description = "take a screenshot", group = "hotkeys"}),
-
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
@@ -404,12 +400,16 @@ globalkeys = my_table.join(
               {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal .. " sh -c \"neofetch; bash\"") end,
-             {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "Return", function () awful.spawn("urxvt") end,
+             {description = "open urxvt", group = "launcher"}),
+    awful.key({ modkey,           }, "a", function () awful.spawn(terminal .. " sh -c \"neofetch; bash\"") end,
+             {description = "open kitty", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Control"}, "b", function () solo_border_toggle = not solo_border_toggle end,
+        {description = "toggle border on solo client", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -565,8 +565,6 @@ globalkeys = my_table.join(
     -- User programs
     awful.key({ modkey }, "q", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
-    awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
-              {description = "run gui editor", group = "launcher"}),
           awful.key({ modkey }, "w", function () awful.spawn("spotify", {
                           tag  = awful.tag.find_by_name(awful.screen.focused(), "music"),
                 }) end,
@@ -579,6 +577,9 @@ globalkeys = my_table.join(
               {description = "run zathura", group = "launcher"}),
           awful.key({ modkey, "Control" }, "d", function () awful.spawn("discord") end,
               {description = "run discord", group = "launcher"}),
+        -- https://github.com/lcpz/dots/blob/master/bin/screenshot
+        awful.key({ modkey, "Control" }, "s", function() os.execute("~/Scripts/snip") end,
+                  {description = "take a screenshot", group = "hotkeys"}),
 
 
     -- Default
@@ -728,10 +729,11 @@ clientbuttons = gears.table.join(
     end)
 )
 
+
 -- Set keys
 root.keys(globalkeys)
 -- }}}
-
+--}}}
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {

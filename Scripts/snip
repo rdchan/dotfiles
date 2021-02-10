@@ -1,3 +1,4 @@
 #!/bin/bash
+sleep 0.2
 rm ~/Screensnips/snip.png
-scrot -s ~/Screensnips/snip.png
+scrot -s -e 'mv $f ~/Screensnips/snip.png' && xclip -selection clipboard -t image/png -i ~/Screensnips/snip.png
