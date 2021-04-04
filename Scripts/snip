@@ -1,4 +1,11 @@
 #!/bin/bash
 sleep 0.2
 rm ~/Screensnips/snip.png
-scrot -s -e 'mv $f ~/Screensnips/snip.png' && xclip -selection clipboard -t image/png -i ~/Screensnips/snip.png
+# use -w to get the current window, otherwise interactive
+if [ "$1" == "-w" ]; then
+    scrot -u -e 'mv $f ~/Screensnips/snip.png' && xclip -selection clipboard -t image/png -i ~/Screensnips/snip.png
+elif [ "$1" == '-f' ]; then
+    scrot -m -e 'mv $f ~/Screensnips/snip.png' && xclip -selection clipboard -t image/png -i ~/Screensnips/snip.png
+else
+    scrot -s -e 'mv $f ~/Screensnips/snip.png' && xclip -selection clipboard -t image/png -i ~/Screensnips/snip.png
+fi

@@ -143,9 +143,10 @@ awful.util.taglist_buttons = my_table.join(
             client.focus:toggle_tag(t)
         end
 
-    end),
-    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+    end)
+    -- i hate the mouse scroll change tags. never want to use it intentionally.
+    --awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+    --awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
 awful.util.tasklist_buttons = my_table.join(
@@ -256,9 +257,10 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(my_table.join(
-    awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end)
+    -- never use mouse scroll to change tags. stupid.
+    --awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -402,8 +404,10 @@ globalkeys = my_table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn("urxvt") end,
              {description = "open urxvt", group = "launcher"}),
-    awful.key({ modkey,           }, "a", function () awful.spawn(terminal .. " sh -c \"neofetch; bash\"") end,
+    awful.key({ modkey,           }, "a", function () awful.spawn(terminal) end,
              {description = "open kitty", group = "launcher"}),
+    awful.key({ modkey,           }, "t", function () awful.spawn("cool-retro-term -p feb") end,
+             {description = "open cool-retro-term", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -565,6 +569,8 @@ globalkeys = my_table.join(
     -- User programs
     awful.key({ modkey }, "q", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "q", function () awful.spawn("qutebrowser") end,
+              {description = "run qutebrowser", group = "launcher"}),
           awful.key({ modkey }, "w", function () awful.spawn("spotify", {
                           tag  = awful.tag.find_by_name(awful.screen.focused(), "music"),
                 }) end,
@@ -579,7 +585,11 @@ globalkeys = my_table.join(
               {description = "run discord", group = "launcher"}),
         -- https://github.com/lcpz/dots/blob/master/bin/screenshot
         awful.key({ modkey, "Control" }, "s", function() os.execute("~/Scripts/snip") end,
-                  {description = "take a screenshot", group = "hotkeys"}),
+                  {description = "take an interactive screenshot", group = "hotkeys"}),
+        awful.key({ modkey, "Control" }, "w", function() os.execute("~/Scripts/snip -w") end,
+                  {description = "take a screenshot of focused window", group = "hotkeys"}),
+        awful.key({ modkey, "Control" }, "f", function() os.execute("~/Scripts/snip -f") end,
+                  {description = "take a screenshot of focused screen", group = "hotkeys"}),
 
 
     -- Default

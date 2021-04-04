@@ -10,7 +10,7 @@ PS1='[\e[36m\d\e[m \@]:\W/\$ '
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
-HISTSIZE=10000
+HISTSIZE=100000
 
 if [ "$TERM" = "xterm-kitty" ]
 then 
@@ -53,10 +53,13 @@ alias ml='cd ~/Documents/spring2021/ml'
 alias theo='cd ~/Documents/spring2021/theo'
 alias syl='zathura *syllabus.pdf &'
 alias viewsnip='kitty +kitten icat ~/Screensnips/snip.png'
+alias viewhelp='kitty +kitten icat ~/.config/kitty/tabwindowshorts.png'
+alias viewhelp2='kitty +kitten icat ~/.config/kitty/othershorts.png'
 alias view='kitty +kitten icat'
-alias shh='sudo rmmod pcspkr'
 alias vnc='sudo systemctl start vncserver@:1'
 alias novnc='sudo systemctl stop vncserver@:1'
+
+bind "set completion-ignore-case on"
 #if ["$TERM" = "linux" ]; then
 #    echo -en "\e]P0282828" #black
 #    echo -en "\e]P8504945" #darkgrey

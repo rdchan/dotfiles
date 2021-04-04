@@ -12,16 +12,20 @@
 	overflow: hidden !important
 }
 
+#view-leaderboard-ad {
+    display: none !important;
+}
+
+#view-billboard-ad {
+    display: none !important;
+}
 /*Hide some annoying elements like profile name and pic, upgrade button and device connect bar at bottom, new playlist button*/
 .profile.content-top-bar__profile-link,
 .upgrade-button,
 .view-player .remote-playback-bar,
-.NewPlaylistButton {
+.ad-container,
+.LeftSidebarNewPlaylistButton__button {
 	display: none !important;
-}
-/*Hide the annoying leaderboard ad*/
-#view-leaderboard-ad {
-    display: none !important;
 }
 
 

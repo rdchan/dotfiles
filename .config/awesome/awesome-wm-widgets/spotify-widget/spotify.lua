@@ -161,9 +161,9 @@ local function worker(args)
 
         spotify_widget:connect_signal('mouse::enter', function()
             spotify_tooltip.markup = 
-                '<b>👨</b>:  ' .. cur_artist
+                     '<b>👨</b>: ' .. cur_artist
                 .. '\n<b>💿</b>: ' .. cur_album
-                .. '\n<b>🎵</b>:   ' .. cur_title
+                .. '\n<b>🎵</b>: ' .. cur_title
         end)
     end
 

@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Editing and usability
 Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsMultilineClose = 0
 
 " --- Programming Languages ---
 Plug 'sheerun/vim-polyglot'
@@ -39,7 +40,8 @@ Plug 'wchargin/vim-latexsuite', {'for': 'tex' }
 let g:Tex_DefaultTargetFormat = 'pdf'
 
 autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
-map <leader>ls :silent call Tex_RunLaTeX()
+" map <leader>ls :silent call Tex_RunLaTeX()
+" map <leader>lw :silent call Tex_RunLaTeX() \| :up <CR>
 
 " --- YCM Code Completion (trying for nice snippets, needs aur pkg too
 Plug 'valloric/youcompleteme'

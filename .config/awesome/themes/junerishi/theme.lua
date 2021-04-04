@@ -66,8 +66,10 @@ theme.widget_volmute                            = theme.confdir .. "/icons/spkrs
 theme.widget_volloud                            = theme.confdir .. "/icons/spkrloud.png"
 theme.widget_volsoft                            = theme.confdir .. "/icons/spkrsoft.png"
 theme.widget_volveryloud                        = theme.confdir .. "/icons/spkrveryloud.png"
-theme.widget_spotify_play                       = theme.confdir .. "/icons/spotify_playing.png"
-theme.widget_spotify_pause                      = theme.confdir .. "/icons/spotify_paused.png"
+--theme.widget_spotify_play                       = theme.confdir .. "/icons/spotify_playing.png"
+theme.widget_spotify_play                       = theme.confdir .. "/icons/hibiscus_on.png"
+--theme.widget_spotify_pause                      = theme.confdir .. "/icons/spotify_paused.png"
+theme.widget_spotify_pause                      = theme.confdir .. "/icons/hibiscus_off.png"
 --theme.taglist_squares_sel                       = theme.confdir .. "/icons/square_a.png"
 --theme.taglist_squares_unsel                     = theme.confdir .. "/icons/square_b.png"
 theme.tasklist_plain_task_name                  = true
@@ -230,9 +232,9 @@ local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 9"},
     --togglechannel = "IEC958,3",
-    width = dpi(80), height = dpi(10), border_width = dpi(0),
+    width = dpi(50), height = dpi(10), border_width = dpi(0),
     colors = {
-        background = "#383838",
+        background = "#484848",
         unmute     = "#80CCE6",
         mute       = "#FF9F9F"
     },
@@ -246,7 +248,7 @@ theme.volume = lain.widget.alsabar({
             volicon.image = gears.surface.load(theme.widget_volsoft)
         elseif volume_now.level < 20 then
             volicon.image = gears.surface.load(theme.widget_vol)
-        elseif volume_now.level < 30 then 
+        elseif volume_now.level < 40 then 
             volicon.image = gears.surface.load(theme.widget_volloud)
         else
             volicon.image = gears.surface.load(theme.widget_volveryloud)
@@ -380,17 +382,21 @@ function theme.at_screen_connect(s)
             })
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
-                screen = s,
-                selected = true
+                screen = s
             })
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
-                screen = s,
-                selected = true
+                screen = s
             })
         awful.tag.add("", {
                 layout = awful.layout.suit.tile,
-                screen = s
+                screen = s,
+                selected = true
+            })
+        awful.tag.add("", {
+                layout = awful.layout.suit.tile,
+                screen = s,
+                selected = true
             })
     end
 
@@ -444,13 +450,16 @@ function theme.at_screen_connect(s)
             --theme.mail.widget,
             spotify_widget({
                 --font = "Hack Regular 10",
-                font = "Comic Sans MS 12",
+                --font = "Comic Sans MS 12",
+                font = "Ink Free 14",
                 dim_when_paused = true,
                dim_opacity = 0.5,
                 max_artist_length = 21,
                 max_song_length = 25,
                 max_album_length = 20,
                show_tooltip = true,
+               play_icon = theme.widget_spotify_play,
+               pause_icon = theme.widget_spotify_pause,
             }),
             netdownicon,
             netdowninfo,
@@ -465,9 +474,9 @@ function theme.at_screen_connect(s)
             --cpu.widget,
             --fsicon,
             --theme.fs.widget,
-            weathericon,
-           theme.weather.widget,
-            weathericon,
+           -- weathericon,
+           --theme.weather.widget,
+           -- weathericon,
            -- tempicon,
            -- temp.widget,
             --baticon,
@@ -477,7 +486,7 @@ function theme.at_screen_connect(s)
         },
         layout = wibox.layout.align.horizontal,
         expand="none",
-        opacity=0.9,
+        opacity=1,
     }
 
     -- Create the bottom wibox
