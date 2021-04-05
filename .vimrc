@@ -3,22 +3,26 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
-endif 
+endif
 
 " --- Plugin section --- "
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 0
 
 " --- Theming --- "
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 
-
-" --- Completion and syntax --- "
 
 " Editing and usability
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMultilineClose = 0
+Plug 'tpope/vim-surround'
+Plug 'dahu/vim-fanfingtastic'
+Plug 'tpope/vim-commentary'
 
 " --- Programming Languages ---
 Plug 'sheerun/vim-polyglot'
@@ -67,8 +71,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "for highlighting hex codes, color names, and rgb profiling in the proper color
 Plug 'ap/vim-css-color'
+
 " Included last for NERDTree icons to be included on a file granularity basis
 Plug 'ryanoasis/vim-devicons'
+
 "Initialize plugin system
 call plug#end()
 
@@ -81,6 +87,8 @@ colorscheme gruvbox
 let g:airline_powerline_fonts = 1
 " Airline theme
 let g:airline_theme = 'gruvbox'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " for latex
 let g:tex_flavor='latex'
@@ -118,4 +126,10 @@ autocmd FileType tex setlocal spell spelllang=en_us
 set iskeyword+=:
 "for copying to x clipboard because it's dumb
 "I wish all yanks could go to xclipboard
+" but I haven't read up on buffers and using the system primary buffer properly
 vmap <C-c> :!xclip -f -sel clip<CR>
+nnoremap <ESC><ESC> :nohlsearch<CR>
+" comment things with ctrl / (another binding for commentary's gc)
+nnoremap <C-_> :Commentary<CR>
+vmap <C-_> :Commentary<CR>
+nnoremap <C-g> :GitGutterToggle<CR>
