@@ -7,6 +7,8 @@ if [ "$1" == "-w" ]; then
     scrot -u -e 'mv $f ~/snip.png' && xclip -selection clipboard -t image/png -i ~/snip.png
 elif [ "$1" == '-f' ]; then
     scrot -m -e 'mv $f ~/snip.png' && xclip -selection clipboard -t image/png -i ~/snip.png
+elif [ "$1" == '-g' ]; then
+    peek &
 else
     scrot -s -e 'mv $f ~/snip.png' && xclip -selection clipboard -t image/png -i ~/snip.png
 fi

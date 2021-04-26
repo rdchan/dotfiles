@@ -132,4 +132,4 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 " comment things with ctrl / (another binding for commentary's gc)
 nnoremap <C-_> :Commentary<CR>
 vmap <C-_> :Commentary<CR>
-nnoremap <C-g> :GitGutterToggle<CR>
+" nnoremap <C-S-g> :GitGutterToggle<CR>

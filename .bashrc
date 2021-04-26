@@ -30,6 +30,7 @@ fi
 alias blue='systemctl start bluetooth.service && bluetoothctl'
 alias ls='lsd -l'
 alias pavu='pavucontrol'
+alias libreoffice='GTK_THEME=Arc libreoffice'
 alias print='systemctl start avahi-daemon.service && systemctl start cups.service'
 alias theme='cd /home/rishi/.config/awesome/themes/junerishi/'
 #alias xdim='xrandr --output HDMI2 --brightness 0.6 && xrandr --output HDMI1 --brightness 0.6'
@@ -58,6 +59,8 @@ alias viewhelp2='kitty +kitten icat ~/.config/kitty/othershorts.png'
 alias view='kitty +kitten icat'
 alias vnc='sudo systemctl start vncserver@:1'
 alias novnc='sudo systemctl stop vncserver@:1'
+alias ass='cd ~/Documents/spring2021/ml/ass/ass4'
+alias catl='lolcat'
 
 bind "set completion-ignore-case on"
 #if ["$TERM" = "linux" ]; then

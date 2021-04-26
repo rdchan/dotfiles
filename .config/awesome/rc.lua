@@ -454,6 +454,8 @@ globalkeys = my_table.join(
               {description = "show filesystem", group = "widgets"}),
 --    awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
 --              {description = "show weather", group = "widgets"}),
+      awful.key({ modkey, "Control" }, "space", function () os.execute("calc") end,
+              {description = "pop up rofi calculator", group = "widgets"}),
 
     -- Brightness
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
@@ -581,6 +583,8 @@ globalkeys = my_table.join(
               {description = "open planner", group = "launcher"}),
           awful.key({ modkey }, "z", function () awful.spawn("zathura") end,
               {description = "run zathura", group = "launcher"}),
+          awful.key({ modkey, "Shift" }, "z", function () awful.spawn("zathura -c ~/.config/zathura/zathura-gruvbox-dark") end,
+              {description = "run zathura dark mode", group = "launcher"}),
           awful.key({ modkey, "Control" }, "d", function () awful.spawn("discord") end,
               {description = "run discord", group = "launcher"}),
         -- https://github.com/lcpz/dots/blob/master/bin/screenshot
@@ -588,8 +592,10 @@ globalkeys = my_table.join(
                   {description = "take an interactive screenshot", group = "hotkeys"}),
         awful.key({ modkey, "Control" }, "w", function() os.execute("~/Scripts/snip -w") end,
                   {description = "take a screenshot of focused window", group = "hotkeys"}),
-        awful.key({ modkey, "Control" }, "f", function() os.execute("~/Scripts/snip -f") end,
-                  {description = "take a screenshot of focused screen", group = "hotkeys"}),
+        awful.key({ modkey, "Control" }, "a", function() os.execute("~/Scripts/snip -f") end,
+                  {description = "take a screenshot across both monitors", group = "hotkeys"}),
+        awful.key({ modkey, "Control", "Shift" }, "s", function() os.execute("~/Scripts/snip -g") end,
+                  {description = "screen record a gif", group = "hotkeys"}),
 
 
     -- Default
@@ -644,7 +650,7 @@ clientkeys = my_table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
@@ -850,6 +856,7 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+-- used to be 4000, changed to 2000 since lua garbage collection gets disgusting and crashes awesomewm
 gears.timer.start_new(10, function() collectgarbage("step", 4000) return true end)
 -- possible workaround for tag preservation when switching back to default screen:
 -- https://github.com/lcpz/awesome-copycats/issues/251

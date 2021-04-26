@@ -10,3 +10,4 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 xrdb ~/.Xresources &
 xbindkeys
 exec "awesome"
+# exec startplasma-x11

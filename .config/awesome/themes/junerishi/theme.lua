@@ -18,10 +18,11 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/junerishi"
-theme.wallpaper                                 = theme.confdir .. "/current_wallpaper"
+theme.wallpaper                                 = theme.confdir .. "/current_wallpaper_right"
+theme.wallpaper2                                 = theme.confdir .. "/current_wallpaper_left"
 theme.wibarimage                                = theme.confdir .. "/spacebanner.png"
 theme.taglist_font                              = "JetBrains 23"
-theme.font                                      = "Hack Regular 9"
+theme.font                                      = "Hasklig Medium 11"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
 theme.bg_normal                                 = "#000000"
@@ -37,7 +38,7 @@ theme.border_normal                             = "#1c2022"
 theme.border_focus                              = '#ffa7a5'--"#e75637"(flamingoy) --"#838383"-- change between gray and "#00ff33" this is a neon green previously was ffffff
 theme.hotkeys_modifiers_fg                      = '#D3869B' -- #D3869B
 theme.hotkeys_fg                                = '#EBDBB2'
-theme.hotkeys_description_font                  = 'Hack Regular 9'
+theme.hotkeys_description_font                  = 'Hack 10'
 --theme.hotkeys_font                              = 'Hack Regular 10'
 theme.border_marked                             = "#3ca4d8"
 theme.menu_border_width                         = 0
@@ -127,9 +128,9 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 -- JUST THE DATE!!! we have center clock for the actual clock
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %B %d"))
 mytextclock.font = theme.font
-local centerclock = wibox.widget.textclock(markup("#de5e1e", "<b>%H:%M:%S</b>"), 1)
+local centerclock = wibox.widget.textclock(markup("#E25D30", "%H %M %S"), 15)
 
-centerclock.font = theme.font
+centerclock.font = "Nasa 14"
 -- Calendar
 --theme.cal = lain.widget.cal({
 --    attach_to = { mytextclock },
@@ -342,12 +343,29 @@ function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
 
-    -- If wallpaper is a function, call it with the screen
-    local wallpaper = theme.wallpaper
-    if type(wallpaper) == "function" then
-        wallpaper = wallpaper(s)
+    if s.index == 1 then
+        local wallpaper = theme.wallpaper
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
     end
-    gears.wallpaper.maximized(wallpaper, s, true)
+
+    if s.index == 2 then
+        local wallpaper = theme.wallpaper2
+        if type(wallpaper) == "function" then
+            wallpaper = wallpaper(s)
+        end
+        gears.wallpaper.maximized(wallpaper, s, true)
+    end
+
+    -- If wallpaper is a function, call it with the screen
+    -- local wallpaper = theme.wallpaper
+
+    -- if type(wallpaper) == "function" then
+    --     wallpaper = wallpaper(s)
+    -- end
+    -- gears.wallpaper.maximized(wallpaper, s, true)
 
     awful.util.tagnames = {}
     -- Tags
@@ -461,10 +479,10 @@ function theme.at_screen_connect(s)
                play_icon = theme.widget_spotify_play,
                pause_icon = theme.widget_spotify_pause,
             }),
-            netdownicon,
-            netdowninfo,
-            netupicon,
-            netupinfo.widget,
+            -- netdownicon,
+            -- netdowninfo,
+            -- netupicon,
+            -- netupinfo.widget,
             volicon,
             --theme.volume.widget,
             volumewidget,
