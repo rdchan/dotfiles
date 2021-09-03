@@ -1,5 +1,3 @@
 #!/bin/bash
 killall spotify
 spotify &
-sleep 7
-sp play

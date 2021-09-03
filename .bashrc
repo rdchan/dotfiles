@@ -41,10 +41,12 @@ alias theme='cd /home/rishi/.config/awesome/themes/junerishi/'
 #alias xsplit='xrandr --output HDMI2 --auto --mode 1920x1080 --left-of HDMI1'
 #alias xsolo='xrandr --output HDMI2 --off'
 #alias xdual='xrandr --output HDMI2 --auto --mode 1920x1080' 
-alias fal='cd ~/Documents/fall2020'
+alias fal='cd ~/Documents/fall2021'
 #alias math='cd ~/Documents/fall2020/math/'
 alias os='cd ~/Documents/fall2020/os/'
 alias opl='cd ~/Documents/fall2020/opl/'
+
+# ===Spring 2021=== #
 alias spr='cd ~/Documents/spring2021'
 alias auto='cd ~/Documents/spring2021/automata/'
 alias adv='cd ~/Documents/spring2021/adv_calc'
@@ -52,7 +54,16 @@ alias digi='cd ~/Documents/spring2021/digi'
 alias gov='cd ~/Documents/spring2021/gov'
 alias ml='cd ~/Documents/spring2021/ml'
 alias theo='cd ~/Documents/spring2021/theo'
+
+# ===Fall 2021=== #
+alias ai='cd ~/Documents/fall2021/ai'
+alias gui='cd ~/Documents/fall2021/guitar'
+alias math='cd ~/Documents/fall2021/math'
+alias nat='cd ~/Documents/fall2021/nat'
+alias swe='cd ~/Documents/fall2021/swe'
+
 alias syl='zathura *syllabus.pdf &'
+complete -o default -o nospace -F _kitty_completions view
 alias viewsnip='kitty +kitten icat ~/snip.png'
 alias viewhelp='kitty +kitten icat ~/.config/kitty/tabwindowshorts.png'
 alias viewhelp2='kitty +kitten icat ~/.config/kitty/othershorts.png'

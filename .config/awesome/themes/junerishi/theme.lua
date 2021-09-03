@@ -129,8 +129,13 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %B %d"))
 mytextclock.font = theme.font
 local centerclock = wibox.widget.textclock(markup("#E25D30", "%H %M %S"), 15)
-
+centerclock.timezone = "-5"
 centerclock.font = "Nasa 14"
+
+-- local seattleclock = wibox.widget.textclock(markup("#D6389B", "     %H:%M:%S"), 15)
+-- seattleclock.timezone = "-7"
+-- seattleclock.font = "Monaco 12"
+
 -- Calendar
 --theme.cal = lain.widget.cal({
 --    attach_to = { mytextclock },
@@ -451,6 +456,7 @@ function theme.at_screen_connect(s)
             mpdicon,
             theme.mpd.widget,
             wibox.widget.systray(),
+            -- seattleclock,
         },
         {
             layout = wibox.layout.fixed.horizontal,

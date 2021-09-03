@@ -49,8 +49,8 @@ autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
 
 " --- YCM Code Completion (trying for nice snippets, needs aur pkg too
 Plug 'valloric/youcompleteme'
-let g:ycm_global_ycm_extra_conf = '/path/to/the/file'
-let g:ycm_confirm_extra_conf = 0
+" let g:ycm_global_ycm_extra_conf = '/path/to/the/file'
+" let g:ycm_confirm_extra_conf = 0
 
 " --- Snippets (trying for tex snippets, using UltiSnips engine with snippets
 "  from honza)
@@ -62,10 +62,11 @@ Plug 'ervandew/supertab'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_use_ultisnips_completer = 1
+" let g:ycm_use_ultisnips_completer = 1
 
 " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 

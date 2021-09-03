@@ -556,17 +556,17 @@ globalkeys = my_table.join(
 
     --]]
     -- Spotify Ad Skip util
-    --awful.key({"Shift" , "Control" }, "Right",
-    --    function ()
-    --        os.execute("skipspotifyad")
-    --    end,
-    --    {description = "skip spotify ad (restart)", group = "widgets"}),
+    awful.key({modkey , "Shift" }, "w",
+        function ()
+            os.execute("skipspotifyad")
+        end,
+        {description = "skip spotify ad (restart)", group = "widgets"}),
     -- Copy primary to clipboard (terminals to gtk)
-    awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
-              {description = "copy terminal to gtk", group = "hotkeys"}),
-    -- Copy clipboard to primary (gtk to terminals)
-    awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
-              {description = "copy gtk to terminal", group = "hotkeys"}),
+    -- awful.key({ modkey, "Control" }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
+    --           {description = "copy terminal to gtk", group = "hotkeys"}),
+    -- -- Copy clipboard to primary (gtk to terminals)
+    -- awful.key({ modkey, "Control"}, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
+    --           {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
     awful.key({ modkey }, "q", function () awful.spawn(browser) end,
@@ -596,7 +596,8 @@ globalkeys = my_table.join(
                   {description = "take a screenshot across both monitors", group = "hotkeys"}),
         awful.key({ modkey, "Control", "Shift" }, "s", function() os.execute("~/Scripts/snip -g") end,
                   {description = "screen record a gif", group = "hotkeys"}),
-
+        awful.key({ modkey, "Control" }, "/", function() os.execute("~/Scripts/shruggie") end,
+                  {description = "put shruggie on clipboard", group = "hotkeys"}),
 
     -- Default
     --[[ Menubar
