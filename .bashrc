@@ -63,7 +63,7 @@ alias nat='cd ~/Documents/fall2021/nat'
 alias swe='cd ~/Documents/fall2021/swe'
 
 alias syl='zathura *syllabus.pdf &'
-complete -o default -o nospace -F _kitty_completions view
+# complete -o default -o nospace -F _kitty_completions view
 alias viewsnip='kitty +kitten icat ~/snip.png'
 alias viewhelp='kitty +kitten icat ~/.config/kitty/tabwindowshorts.png'
 alias viewhelp2='kitty +kitten icat ~/.config/kitty/othershorts.png'
