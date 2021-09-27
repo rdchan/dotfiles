@@ -1,6 +1,5 @@
 #!/bin/bash
-startx /usr/bin/i3
-sleep 2
 iamspeed
 xrandr --output HDMI2 --left-of HDMI1
-feh --bg-scale .config/i3/wallpapers/fullwall.jpg  --bg-scale .config/i3/wallpapers/fullwall.jpg
+feh --bg-scale .config/i3/wallpapers/fullwall.jpg 
+picom

@@ -56,11 +56,11 @@ alias ml='cd ~/Documents/spring2021/ml'
 alias theo='cd ~/Documents/spring2021/theo'
 
 # ===Fall 2021=== #
-alias ai='cd ~/Documents/fall2021/ai'
-alias gui='cd ~/Documents/fall2021/guitar'
-alias math='cd ~/Documents/fall2021/math'
-alias nat='cd ~/Documents/fall2021/nat'
-alias swe='cd ~/Documents/fall2021/swe'
+alias ai='cd ~/Documents/meow_fall2021/ai'
+alias gui='cd ~/Documents/meow_fall2021/guitar'
+alias math='cd ~/Documents/meow_fall2021/math'
+alias nat='cd ~/Documents/meow_fall2021/nat'
+alias swe='cd ~/Documents/meow_fall2021/swe'
 
 alias syl='zathura *syllabus.pdf &'
 # complete -o default -o nospace -F _kitty_completions view

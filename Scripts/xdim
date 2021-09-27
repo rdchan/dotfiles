@@ -5,6 +5,5 @@ if [ "$2" == "-l" ]; then
 elif [ "$2" == "-r" ]; then
     xrandr --output HDMI1 --brightness $level
 else
-    xrandr --output HDMI1 --brightness $level
-    xrandr --output HDMI2 --brightness $level 
+    xrandr --output eDP1 --brightness $level 
 fi

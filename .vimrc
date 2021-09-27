@@ -65,8 +65,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " let g:ycm_use_ultisnips_completer = 1
 
 " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsExpandTrigger="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
@@ -84,6 +84,9 @@ syntax on
 " gruvbox italic fix (must appear before colorscheme)
 let g:gruvbox_italic = 1
 colorscheme gruvbox
+
+" fix for transparent terminal
+hi Normal guibg=NONE ctermbg=NONE
 " Airline powerline fonts fix
 let g:airline_powerline_fonts = 1
 " Airline theme
