@@ -18,8 +18,9 @@ Plug 'vim-airline/vim-airline'
 
 
 " Editing and usability
-Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsMultilineClose = 0
+" Plug 'jiangmiao/auto-pairs'
+" let g:AutoPairsMultilineClose = 0
+" let g:AutoPairs['<']='a'
 Plug 'tpope/vim-surround'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'tpope/vim-commentary'
@@ -65,8 +66,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " let g:ycm_use_ultisnips_completer = 1
 
 " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsExpandTrigger="<C-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 

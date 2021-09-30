@@ -590,6 +590,8 @@ globalkeys = my_table.join(
         -- https://github.com/lcpz/dots/blob/master/bin/screenshot
         awful.key({ modkey, "Control" }, "s", function() os.execute("~/Scripts/snip") end,
                   {description = "take an interactive screenshot", group = "hotkeys"}),
+        awful.key({ modkey, "Shift" }, "t", function() os.execute("~/Scripts/text_snip.sh") end,
+                  {description = "use OCR to get snip's text", group = "hotkeys"}),
         awful.key({ modkey, "Control" }, "w", function() os.execute("~/Scripts/snip -w") end,
                   {description = "take a screenshot of focused window", group = "hotkeys"}),
         awful.key({ modkey, "Control" }, "a", function() os.execute("~/Scripts/snip -f") end,
@@ -653,7 +655,7 @@ clientkeys = my_table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, "Control" }, "m", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),

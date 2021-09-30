@@ -18,8 +18,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/junerishi"
-theme.wallpaper                                 = theme.confdir .. "/current_wallpaper_right"
-theme.wallpaper2                                 = theme.confdir .. "/current_wallpaper_left"
+theme.wallpaper                                 = theme.confdir .. "/nyan.jpg"
+theme.wallpaper2                                 = theme.confdir .. "/nyan-left.jpg"
 theme.wibarimage                                = theme.confdir .. "/spacebanner.png"
 theme.taglist_font                              = "JetBrains 23"
 theme.font                                      = "Hasklig Medium 11"

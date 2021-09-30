@@ -1,2 +1,2 @@
-rofi -show calc -modi calc -no-show-match -no-sort -theme /usr/share/rofi/themes/gruvbox-dark-soft.rasi
+rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -theme /usr/share/rofi/themes/gruvbox-dark-soft.rasi
 
