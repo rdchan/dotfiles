@@ -12,3 +12,5 @@ elif [ "$1" == '-g' ]; then
 else
     scrot -s -e 'mv $f ~/snip.png' && xclip -selection clipboard -t image/png -i ~/snip.png
 fi
+
+cp ~/snip.png /tmp/snip.png

@@ -1,3 +1,3 @@
 #!/bin/bash
-python /home/rishi/Scripts/text_snip.py
-xclip -selection clipboard < ~/snip.txt
+python ~/Scripts/text_snip.py
+xclip -selection clipboard < /tmp/snip.txt

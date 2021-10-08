@@ -24,11 +24,11 @@ lang = 'eng'
 # to use.
 
 txt = tool.image_to_string(
-    Image.open('/home/rishi/snip.png'),
+    Image.open('/tmp/snip.png'),
     lang=lang,
     builder=pyocr.builders.TextBuilder()
 )
 
-textfile = open("/home/rishi/snip.txt", "w")
+textfile = open("/tmp/snip.txt", "w")
 textfile.write(txt)
 textfile.close()
