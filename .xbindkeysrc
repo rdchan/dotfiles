@@ -63,11 +63,13 @@
 #  Control + b:2 + Release
 
 ###Sound control for alsa###
-"amixer sset Master 1%- && amixer sset Master unmute"
+# "pactl set-sink-volume @DEFAULT_SINK@ +10%"
+"if [ $(pamixer --get-volume) -gt 0 ]; then pactl set-sink-volume @DEFAULT_SINK@ -10%; fi"
 	XF86AudioLowerVolume
-"amixer sset Master 1%+ && amixer sset Master unmute"
+# "pactl set-sink-volume @DEFAULT_SINK@ +10%"
+"if [ $(pamixer --get-volume) -lt 100 ]; then pactl set-sink-volume @DEFAULT_SINK@ +10%; fi "
 	XF86AudioRaiseVolume
-"amixer sset Master toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 	XF86AudioMute
 "playerctl play-pause"
     XF86AudioPause
@@ -77,6 +79,10 @@
     XF86AudioNext
 "playerctl previous"
     XF86AudioPrev
+"xbacklight -inc 10"
+    XF86MonBrightnessUp
+"xbacklight -dec 10"
+    XF86MonBrightnessDown
 ################################## 
 # End of xbindkeys configuration #
 ##################################
