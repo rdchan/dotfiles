@@ -1,1 +1,1 @@
-firefox --new-window https://services.utdallas.edu/download/Dining_Hours.pdf &
+firefox --new-window 'file:///home/rishi/Documents/fall2021/Dining_Hours.pdf' &

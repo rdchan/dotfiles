@@ -1,7 +1,5 @@
 from PIL import Image
 import sys
-import subprocess
-
 import pyocr
 import pyocr.builders
 
