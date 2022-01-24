@@ -64,10 +64,10 @@
 
 ###Sound control for alsa###
 # "pactl set-sink-volume @DEFAULT_SINK@ +10%"
-"if [ $(pamixer --get-volume) -gt 0 ]; then pactl set-sink-volume @DEFAULT_SINK@ -10%; fi"
+"if [ $(pamixer --get-volume) -gt 0 ]; then pactl set-sink-volume @DEFAULT_SINK@ -2%; fi"
 	XF86AudioLowerVolume
 # "pactl set-sink-volume @DEFAULT_SINK@ +10%"
-"if [ $(pamixer --get-volume) -lt 100 ]; then pactl set-sink-volume @DEFAULT_SINK@ +10%; fi "
+"if [ $(pamixer --get-volume) -lt 100 ]; then pactl set-sink-volume @DEFAULT_SINK@ +2%; fi "
 	XF86AudioRaiseVolume
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 	XF86AudioMute

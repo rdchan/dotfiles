@@ -60,7 +60,7 @@ alias ai='cd ~/Documents/meow_fall2021/ai'
 alias gui='cd ~/Documents/meow_fall2021/guitar'
 alias math='cd ~/Documents/meow_fall2021/math'
 alias nat='cd ~/Documents/meow_fall2021/nat'
-alias swe='cd ~/Documents/meow_fall2021/swe'
+alias swe='cd ~/Documents/meow_fall2021/swe/jedit-f21-team03'
 
 alias syl='zathura *syllabus.pdf &'
 # complete -o default -o nospace -F _kitty_completions view
