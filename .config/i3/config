@@ -59,7 +59,7 @@ bindsym $mod+Shift+e kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+space exec --no-startup-id dmenu_run
+bindsym $mod+space exec calc run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -111,7 +111,10 @@ bindsym $mod+Shift+space floating toggle
 # bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+p focus parent
+# bindsym $mod+p focus parent
+
+# open the planner
+bindsym $mod+p exec "firefox calendar.google.com --new-window"
 
 # Moving workspaces between screens
 bindsym $mod+Shift+o move workspace to output right

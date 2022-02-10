@@ -46,6 +46,11 @@ alias fal='cd ~/Documents/fall2021'
 alias os='cd ~/Documents/fall2020/os/'
 alias opl='cd ~/Documents/fall2020/opl/'
 
+# ===Spring 2022=== #
+alias spr='cd ~/Documents/meow_spring2022'
+alias ml='cd ~/Documents/meow_spring2022/ml'
+alias info='cd ~/Documents/meow_spring2022/info'
+alias db='cd ~/Documents/meow_spring2022/db'
 # ===Spring 2021=== #
 alias spr='cd ~/Documents/spring2021'
 alias auto='cd ~/Documents/spring2021/automata/'
@@ -93,3 +98,7 @@ bind "set completion-ignore-case on"
 #    echo -en "\e]PFebdbb2" #cyan
 #    clear #for background artifacting
 #fi
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
