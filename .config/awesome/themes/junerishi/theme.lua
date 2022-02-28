@@ -129,7 +129,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %B %d"))
 mytextclock.font = theme.font
 local centerclock = wibox.widget.textclock(markup("#E25D30", "%H %M %S"), 15)
-centerclock.timezone = "-5"
+centerclock.timezone = "US/Central"
 centerclock.font = "Nasa 14"
 
 -- local seattleclock = wibox.widget.textclock(markup("#D6389B", "     %H:%M:%S"), 15)
@@ -376,7 +376,7 @@ function theme.at_screen_connect(s)
     -- Tags
     if s.index == 1 then
         awful.tag.add("", {
-                layout = awful.layout.suit.tile,
+                layout = awful.layout.suit.fair,
                 screen = s,
                 selected = true
             })
@@ -404,7 +404,7 @@ function theme.at_screen_connect(s)
                 screen = s,
             })
         awful.tag.add("", {
-                layout = awful.layout.suit.tile,
+                layout = lain.layout.centerwork,
                 screen = s
             })
         awful.tag.add("", {

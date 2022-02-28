@@ -1,0 +1,4 @@
+kitty cava -p ~/.config/cava/ace.conf &
+kitty cava -p ~/.config/cava/trans.conf &
+kitty cava -p ~/.config/cava/rainbow.conf &
+kitty cava -p ~/.config/cava/vibrant_pan.conf &

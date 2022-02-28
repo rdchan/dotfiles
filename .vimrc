@@ -43,6 +43,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " --- LaTeX Suite ---
 Plug 'wchargin/vim-latexsuite', {'for': 'tex' }
 let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_pdf = 'pdflatex --shell-escape'
 
 autocmd BufWritePost *.tex silent call Tex_RunLaTeX()
 " map <leader>ls :silent call Tex_RunLaTeX()

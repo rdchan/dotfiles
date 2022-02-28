@@ -20,7 +20,7 @@ local lain          = require("lain")
 --local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
-                      require("awful.hotkeys_popup.keys.vim")
+                      -- require("awful.hotkeys_popup.keys.vim")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 -- }}}
@@ -115,19 +115,19 @@ awful.layout.layouts = {
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
     --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center,
+    -- lain.layout.cascade,
+    -- lain.layout.cascade.tile,
+    lain.layout.centerwork,
+    -- lain.layout.centerwork.horizontal,
+    -- lain.layout.termfair,
+    -- lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -562,9 +562,10 @@ globalkeys = my_table.join(
         end,
         {description = "skip spotify ad (restart)", group = "widgets"}),
     -- Copy primary to clipboard (terminals to gtk)
-    -- awful.key({ modkey, "Control" }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
-    --           {description = "copy terminal to gtk", group = "hotkeys"}),
+    awful.key({ modkey, "Control" }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
+              {description = "copy terminal to gtk", group = "hotkeys"}),
     -- -- Copy clipboard to primary (gtk to terminals)
+    -- CAUTION - remapped mod ctrl v to kill visualizers
     -- awful.key({ modkey, "Control"}, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
     --           {description = "copy gtk to terminal", group = "hotkeys"}),
 
@@ -579,14 +580,20 @@ globalkeys = my_table.join(
               {description = "run spotify", group = "launcher"}),
           awful.key({ modkey }, "e", function () awful.spawn("teams") end,
               {description = "run teams", group = "launcher"}),
-          awful.key({ modkey }, "p", function () awful.spawn("surf calendar.google.com") end,
+          awful.key({ modkey }, "p", function () awful.spawn("firefox --new-window calendar.google.com") end,
               {description = "open planner", group = "launcher"}),
+          awful.key({ modkey , "Shift"}, "p", function () awful.spawn("firefox --private-window") end,
+              {description = "open private firefox window", group = "launcher"}),
           awful.key({ modkey }, "z", function () awful.spawn("zathura") end,
               {description = "run zathura", group = "launcher"}),
           awful.key({ modkey, "Shift" }, "z", function () awful.spawn("zathura -c ~/.config/zathura/zathura-gruvbox-dark") end,
               {description = "run zathura dark mode", group = "launcher"}),
           awful.key({ modkey, "Control" }, "d", function () awful.spawn("discord") end,
               {description = "run discord", group = "launcher"}),
+          awful.key({ modkey }, "v", function () os.execute("~/Scripts/cava_extreme") end,
+              {description = "run visualizers", group = "launcher"}),
+          awful.key({ modkey, "Control" }, "v", function () os.execute("killall cava") end,
+              {description = "run visualizers", group = "launcher"}),
         -- https://github.com/lcpz/dots/blob/master/bin/screenshot
         awful.key({ modkey, "Control" }, "s", function() os.execute("~/Scripts/snip") end,
                   {description = "take an interactive screenshot", group = "hotkeys"}),

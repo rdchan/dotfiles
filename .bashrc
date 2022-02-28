@@ -46,13 +46,23 @@ alias fal='cd ~/Documents/fall2021'
 alias os='cd ~/Documents/fall2020/os/'
 alias opl='cd ~/Documents/fall2020/opl/'
 
+alias dob='cd ~/Documents/scope/'
+
+# ===Spring 2022=== #
+alias spr='cd ~/Documents/spring2022'
+alias info='cd ~/Documents/spring2022/info'
+alias db='cd ~/Documents/spring2022/db'
+alias ml='cd ~/Documents/spring2022/ml'
+alias proj='cd ~/Documents/spring2022/proj'
+alias sen='cd ~/Documents/spring2022/senior'
+
 # ===Spring 2021=== #
-alias spr='cd ~/Documents/spring2021'
+# alias spr='cd ~/Documents/spring2021'
 alias auto='cd ~/Documents/spring2021/automata/'
 alias adv='cd ~/Documents/spring2021/adv_calc'
 alias digi='cd ~/Documents/spring2021/digi'
 alias gov='cd ~/Documents/spring2021/gov'
-alias ml='cd ~/Documents/spring2021/ml'
+# alias ml='cd ~/Documents/spring2021/ml'
 alias theo='cd ~/Documents/spring2021/theo'
 
 # ===Fall 2021=== #
@@ -60,7 +70,9 @@ alias ai='cd ~/Documents/fall2021/ai'
 alias gui='cd ~/Documents/fall2021/guitar'
 alias math='cd ~/Documents/fall2021/math'
 alias nat='cd ~/Documents/fall2021/nat'
+alias eth='cd ~/Documents/fall2021/ethics'
 alias swe='cd ~/Documents/fall2021/swe'
+alias bouree='firefox ~/Documents/fall2021/guitar/bwv996.png'
 
 alias syl='zathura *syllabus.pdf &'
 # complete -o default -o nospace -F _kitty_completions view
@@ -93,3 +105,7 @@ bind "set completion-ignore-case on"
 #    echo -en "\e]PFebdbb2" #cyan
 #    clear #for background artifacting
 #fi
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION

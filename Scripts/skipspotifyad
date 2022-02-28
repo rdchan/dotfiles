@@ -1,3 +1,5 @@
 #!/bin/bash
 killall spotify
 spotify &
+nohup sh -c 'sleep 7; sp play' 2>/dev/null &
+
