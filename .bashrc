@@ -46,19 +46,20 @@ alias fal='cd ~/Documents/fall2021'
 alias os='cd ~/Documents/fall2020/os/'
 alias opl='cd ~/Documents/fall2020/opl/'
 
+alias dob='cd ~/Documents/scope/'
 # ===Spring 2022=== #
 alias spr='cd ~/Documents/meow_spring2022'
 alias ml='cd ~/Documents/meow_spring2022/ml'
 alias info='cd ~/Documents/meow_spring2022/info'
 alias db='cd ~/Documents/meow_spring2022/db'
 # ===Spring 2021=== #
-alias spr='cd ~/Documents/spring2021'
-alias auto='cd ~/Documents/spring2021/automata/'
-alias adv='cd ~/Documents/spring2021/adv_calc'
-alias digi='cd ~/Documents/spring2021/digi'
-alias gov='cd ~/Documents/spring2021/gov'
-alias ml='cd ~/Documents/spring2021/ml'
-alias theo='cd ~/Documents/spring2021/theo'
+# alias spr='cd ~/Documents/spring2021'
+# alias auto='cd ~/Documents/spring2021/automata/'
+# alias adv='cd ~/Documents/spring2021/adv_calc'
+# alias digi='cd ~/Documents/spring2021/digi'
+# alias gov='cd ~/Documents/spring2021/gov'
+# alias ml='cd ~/Documents/spring2021/ml'
+# alias theo='cd ~/Documents/spring2021/theo'
 
 # ===Fall 2021=== #
 alias ai='cd ~/Documents/meow_fall2021/ai'

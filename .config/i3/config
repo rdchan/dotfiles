@@ -114,7 +114,7 @@ bindsym $mod+Shift+space floating toggle
 # bindsym $mod+p focus parent
 
 # open the planner
-bindsym $mod+p exec "firefox calendar.google.com --new-window"
+bindsym $mod+p exec "firefox --new-window calendar.google.com"
 
 # Moving workspaces between screens
 bindsym $mod+Shift+o move workspace to output right
