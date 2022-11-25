@@ -1,0 +1,30 @@
+// BD buttons
+.bd-button {
+    @include buttonify($low, $high, $mid, $high);
+
+    &.bd-button-danger {
+        background-color: $alert;
+    }
+}
+.bd-addon-views .bd-view-button.selected {
+    background-color: $alert;
+}
+// Theme / Plugin Cards
+.bd-addon-list .bd-addon-card {
+    @include boxify($high, $mid, 4px);
+}
+.bd-addon-header svg {
+    fill: $low;
+}
+.theme-dark .markdown-19oyJN {
+    color: $low;
+}
+// BD socials
+.socialLinks-2DELRE svg {
+    path {
+        fill: $low !important;
+    }
+    &:hover path {
+        fill: $alert !important;
+    }
+}

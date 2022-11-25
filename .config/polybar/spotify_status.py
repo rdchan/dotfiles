@@ -142,11 +142,11 @@ try:
             track_number = label_with_font.format(font=font, label=track_number)
 
         # Add 4 to trunclen to account for status symbol, spaces, and other padding characters
-        print(truncate(output.format(artist=artist,
-                                     song=song,
-                                     play_pause=play_pause,
-                                     album=album,
-                                     track_number=track_number), trunclen + 5))
+        print(truncate(output.format(artist   = truncate(artist, 25),
+                                     song     = song,
+                                   play_pause = play_pause,
+                                     album    = truncate(album, 20),
+                                 track_number = track_number), trunclen + 5))
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):

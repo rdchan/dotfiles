@@ -1,0 +1,168 @@
+// Transparencies
+.app-2CXKsg,
+.bg-1QIAus {
+    background-color: transparent;
+}
+.wordmarkWindows-2dq6rw {
+    color: transparent;
+}
+// Close/Minimize/Maximize buttons
+.winButtonClose-3Q8ZH5:hover {
+    transition: background-color 0.2s, color 0.2s ease;
+    color: $high;
+    background: $alert;
+}
+.winButtonMinMax-3RsPUg:hover {
+    transition: background-color 0.2s, color 0.2s ease;
+    color: $high;
+    background: $low;
+}
+// Input text
+.emojiRowText-2j4TNM {
+    color: $mid;
+}
+.theme-dark .emojiAliasPlaceholder-3H_iZA {
+    color: $low;
+}
+.theme-dark .emojiAliasInput-1y-NBz .emojiInput-1aLNse,
+.input-2g-os5 {
+    background-color: $high;
+    border-radius: 0;
+    border: 2px solid $low;
+    color: $low;
+
+    &:hover {
+        border-color: $mid;
+    }
+    &.focused-1AtTHC,
+    &:focus {
+        border-color: $alert;
+    }
+    &::placeholder {
+        color: $mid;
+    }
+}
+// Buttons
+.bd-modal-wrapper .footer button, // PRE-BETA BBD: WILL BE DEPRECIATED SOON
+.theme-dark .button-1iHNQ2,
+.theme-dark .watchButton-2v6cPT,
+.theme-dark .lookFilled-1Gx00P.colorPrimary-3b3xI6,
+.lookInverted-2D7oAl.colorGreen-29iAKY,
+.lookInverted-2D7oAl.colorBrand-3pXr91,
+.container-x8Y1ix,
+.lookOutlined-3sRXeN.colorGreen-29iAKY,
+.lookOutlined-3sRXeN.colorBrand-3pXr91,
+.lookFilled-1Gx00P.colorPrimary-3b3xI6,
+.lookFilled-1Gx00P.colorGrey-2DXtkV,
+.lookFilled-1Gx00P.colorBrand-3pXr91,
+.lookFilled-1Gx00P.colorBrand-3pXr91:disabled {
+    @include buttonify($low, $high, $mid, $high);
+}
+#bd-settingspane-container .bd-pfbtn, // PRE-BETA BBD: WILL BE DEPRECIATED SOON
+.theme-dark .lookOutlined-3sRXeN.colorPrimary-3b3xI6,
+.jumpButton-JkYoYK,
+.button-1EGGcP.buttonColor-3bP3fX.buttonActive-Uc1jHx,
+.lookFilled-1Gx00P.colorGreen-29iAKY,
+.lookFilled-1Gx00P.colorRed-1TFJan,
+.lookOutlined-3sRXeN.colorRed-1TFJan {
+    @include buttonify($alert, $high, $low, $high);
+}
+.lookOutlined-3sRXeN.colorWhite-rEQuAQ {
+    @include buttonify($alert, $high, $high, $low);
+}
+// Slider / Toggle switch
+.container-2nx-BQ {
+    background-color: $low !important;
+    border-radius: 0;
+}
+.input-2XRLou {
+    border-radius: 0;
+}
+.slider-32CRPX rect {
+    fill: $high;
+    rx: 0;
+    ry: 4;
+}
+.bd-switch-body {
+    --switch-color: $mid;
+    background-color: $mid;
+    .bd-switch-slider .bd-switch-handle {
+        fill: $high;
+    }
+}
+.bd-switch-checked .bd-switch-body {
+    background-color: $low;
+}
+.bd-switch input:checked + .bd-switch-body {
+    --switch-color: $high;
+}
+// Checkbox
+.item-2idW98 {
+    transition: color 0.2s, background-color 0.2s;
+    @include boxify($high, $mid, 3px);
+    @include buttonify($high, $low, $low, $high);
+
+    &[aria-checked='true'] {
+        background: $alert;
+        color: $high;
+
+        .radioIconForeground-2BMavi {
+            color: $high;
+        }
+    }
+    .radioBar-3w9XY- {
+        border-radius: 0;
+    }
+}
+// Drop-down
+.css-1kj8ui-container {
+    div {
+        border-radius: 0;
+    }
+    .css-6fzn47-control {
+        border: 2px solid $alert;
+        background-color: $high;
+    }
+    .css-17e1tep-control,
+    .css-gvi9bl-control {
+        border: 2px solid $low;
+        background-color: $high;
+    }
+    .css-o3gndj-placeholder,
+    .css-1yz4bi9-option,
+    .css-ku6vh5-indicatorContainer,
+    .css-4h5swf-singleValue {
+        color: $low;
+    }
+    .css-3vaxre-menu {
+        border: 2px solid $low;
+        background-color: $high;
+        box-shadow: none;
+    }
+    .css-rzbxvl-option {
+        background-color: $low;
+        color: $high;
+
+        .colorStandard-1Xxp1s,
+        .subtitle-2SfoOV {
+            color: $high;
+        }
+    }
+    .css-1ba14n5-option {
+        background-color: $alert;
+        color: $high;
+    }
+}
+// Pulley bar
+.barFill-2Bh7CX {
+    background: $alert;
+}
+.theme-dark .bar-1Bhnl9 {
+    background: $low;
+}
+.grabber-2GQyvM {
+    background: $high;
+    border: 1px solid $low;
+    border-radius: 0;
+    box-shadow: none;
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+killall xbindkeys
+
+xinput set-prop 13 "libinput Tapping Enabled" 1
+xinput set-prop 14 "Device Enabled" 0
+xbindkeys
+setxkbmap -option caps:swapescape

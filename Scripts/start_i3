@@ -1,11 +1,11 @@
 #!/bin/bash
 iamspeed
-xrandr --output HDMI2 --left-of HDMI1
-feh --bg-scale .config/i3/wallpapers/fullwall.jpg 
-picom &
+# xrandr --output HDMI2 --left-of HDMI1
+feh --bg-scale ~/.config/i3/wallpapers/wallpaper.jpg 
+# picom &
+# discord --start-minimized &
 # repeat until xinput returns success for the first time
-while ! xinput set-prop 13 "libinput Tapping Enabled" 1
-do
-    sleep 1
-done
-discord --start-minimized
+# while ! xinput set-prop 13 "libinput Tapping Enabled" 1
+# do
+#     sleep 1
+# done

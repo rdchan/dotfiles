@@ -1,0 +1,2 @@
+modprobe joydev
+dolphin-emu-nogui ~/Games/Super\ Monkey\ Ball\ 2\ \(USA\).rvz

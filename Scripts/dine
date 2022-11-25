@@ -1,1 +1,1 @@
-firefox --new-window https://services.utdallas.edu/download/Dining_Hours.pdf &
+firefox --new-window file:///home/kittycat/Documents/meow_fall2022/dining_hours.pdf &

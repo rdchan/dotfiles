@@ -1,0 +1,195 @@
+// Transparencies
+.tabBarContainer-1s1u-z {
+    border: none;
+}
+
+.separator-1So4YB {
+    margin: 0;
+}
+
+.headerStreaming-2FjmGz,
+.headerXbox-3G-4PF,
+.theme-dark .headerNormal-T_seeN,
+.theme-dark .body-3iLsc4,
+.topSectionPlaying-1J5E4n,
+.topSectionSpotify-1lI0-P,
+.headerSpotify-zpWxgT,
+.headerPlaying-j0WQBV,
+.theme-dark .footer-1fjuF6 {
+    background: transparent;
+}
+
+// Colors
+[style*='border-color: rgb(255, 255, 255);'] {
+    border-color: $alert !important;
+}
+
+.top-K_jibn .item-3XjbnG {
+    color: $mid;
+}
+
+.top-K_jibn {
+    .selected-g-kMVV.item-3XjbnG,
+    .selected-g-kMVV.item-3XjbnG:hover {
+        color: $low;
+    }
+}
+
+.nickname-t08Mck,
+.headerTagUsernameBase-XYisdh,
+.headerTagUsernameNoNickname-1TjuLc,
+.discrimBase-1VOoau,
+.theme-dark .newPopoutActivityStyles .activityName-3YXl6e,
+.activityHeader-1PExlk,
+.customStatusText-39gdCI,
+.colorDefault-CDqZdO:active:not(.hideInteraction-2jPGL_),
+.colorDefault-CDqZdO.focused-3qFvc8,
+.text-31kWmP,
+.nameWrap-3TyM52,
+.activityName-3YXl6e {
+    color: $high;
+}
+
+.customStatus-1bh2V9,
+.additionalActionsIcon-1FoUlE,
+.discriminator-xUhQkU,
+.username-3gJmXY,
+.headerName-fajvi9,
+.headerTag-2pZJzA,
+.headerTagUsernameNoNickname-2_H881 {
+    color: $low;
+}
+
+.bar-1GpknY,
+.headerFill-adLl4x,
+.colorDefault-CDqZdO:active:not(.hideInteraction-2jPGL_),
+.colorDefault-CDqZdO.focused-3qFvc8,
+.activity-3v9l4T {
+    background: $low;
+}
+
+.barInner-3dHef4 {
+    background: $high;
+}
+
+// Playing a game
+.theme-dark .activity-3v9l4T {
+    order: 10;
+    padding: 16px;
+    background-color: $low;
+    .nameWrap-3TyM52,
+    .content-tXPNDw,
+    .headerText-3g1XK9 {
+        color: $high;
+    }
+}
+
+// Rich Embed Game Icon
+.gameIcon-1mDo1J,
+.assetsLargeImage-8U5dlz {
+    border-radius: 0;
+    border: 1px solid $high;
+}
+
+.root-SR8cQa, // User menu popout
+.theme-dark .colorPickerCustom-1swUKF, // Color picker
+.userPopout-2j1gM4 // Clicking on a user
+{
+    @include boxify($high, $mid, 5px);
+    border-color: $low;
+}
+
+.theme-dark .newPopoutActivityStyles .activityName-3YXl6e {
+    color: $low;
+}
+
+.headerNormal-3Zn_yu {
+    display: flex;
+    flex-direction: column;
+}
+
+.popoutBanner-3cqRD9 {
+    position: relative;
+    order: 0;
+}
+
+// Header
+.headerTop-3GPUSF {
+    position: static;
+    padding: 8px;
+    background-color: $low;
+    .customStatus-3XAoF9,
+    .nickname-2gQ76l,
+    .headerTagUsernameBase-24SRnT,
+    .headerTagUsernameNoNickname-1ZLDYY,
+    .discrimBase-1QwWzY {
+        color: $high;
+    }
+    .profileBadges-3cJaE1 {
+        margin: auto;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        transform: translateY(150%);
+    }
+    .headerText-15Q25Z {
+        padding-bottom: 4px;
+    }
+    .aboutMeSection---MkQa {
+        padding: 8px;
+    }
+}
+.headerWrapper-3iTlIT {
+    order: 1;
+}
+// Avatar
+.avatarWrapper-eenWra {
+    margin: 15px auto;
+    display: flex;
+    position: relative;
+    justify-self: center;
+    align-content: center;
+    justify-content: center;
+    order: 2;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 120px;
+    background-color: $mid;
+    border-radius: 0;
+}
+
+.avatar-2Vndt_ {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    border-width: 1px;
+    background-color: $high;
+}
+
+// Avatar hint
+.avatarWrapperNormal-ahVUaC,
+.avatarWrapperNormal-ahVUaC:hover {
+    .avatarHint-k7pYop {
+        top: 20px;
+        left: 95px;
+        margin: auto;
+    }
+}
+
+.body-2wLx-E {
+    order: 3;
+}
+
+.footer-3naVBw {
+    order: 4;
+}
+
+// Spotify
+.bar-1GpknY {
+    border: 1px solid $mid;
+    .barInner-3dHef4 {
+        background-color: $alert;
+    }
+}
